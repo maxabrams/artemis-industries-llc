@@ -1,0 +1,22 @@
+{
+  "name": "artemis-industries-llc-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build:css && npm run build:js && npm run build:html",
+    "build:css": "mkdir -p css && cleancss -o css/styles.css src/css/styles.css",
+    "build:js": "mkdir -p js && terser src/js/main.js -o js/main.js -c -m",
+    "build:html": "html-minifier-terser --collapse-whitespace --remove-comments --minify-css true --minify-js true -o index.html src/index.html",
+    "dev": "python3 -m http.server 8000 --directory src",
+    "serve": "python3 -m http.server 8000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-terser": "^7.2.0",
+    "terser": "^5.46.1"
+  }
+}
